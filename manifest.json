@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Trustworthiness Score Extension",
+  "version": "1.0",
+  "description": "Displays a trustworthiness score for websites based on SSL certification, domain reputation, and user reviews.",
+  "permissions": ["storage", "activeTab", "scripting", "declarativeNetRequest"],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
